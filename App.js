@@ -2,41 +2,35 @@ import {StatusBar} from 'expo-status-bar';
 import React from 'react';
 import {
     StyleSheet,
-    Text,
     View,
+    Image,
+    Dimensions
 } from 'react-native';
 
+import cat1 from "./assets/cat1.jpg"
+import cat2 from "./assets/cat2.jpg"
 
 export default function App() {
 
     return (
         <View style={styles.page}>
-          <Text style={styles.text}>Red</Text>
-          <Text style={[styles.text, styles.selectedText]}>Green</Text>
-          <Text style={styles.text}>Blue</Text>
+            <Image style={styles.image} source={cat1}/>
+            <Image style={styles.image} source={cat2}/>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-  page : {
-    marginTop : 40,
-    backgroundColor : "#DDD",
+  page: {
     flex: 1,
-    flexDirection : "row",
-    justifyContent: "space-around",
-    alignItems : "flex-start"
+    justifyContent: "center",
+    alignItems: "center"
   },
-  text: {
-    fontSize : 22,
-    color: "red",
-    backgroundColor: "yellow",
-    margin: 10,
-    padding: 5,
-    textAlign: "center"
-  },
-  selectedText: {
-    backgroundColor: "red",
-    color: "yellow",
+
+  image: {
+      flex: 1,
+      borderRadius: 50,
+      margin: 10,
+      width: Dimensions.get("window").width - 10
   }
 });

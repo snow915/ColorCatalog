@@ -21,14 +21,19 @@ export default function App() {
 const styles = StyleSheet.create({
   page : {
     marginTop : 40,
-    backgroundColor : "#DDD"
+    backgroundColor : "#DDD",
+    flex: 1,
+    flexDirection : "row",
+    justifyContent: "space-around",
+    alignItems : "flex-start"
   },
   text: {
     fontSize : 22,
     color: "red",
     backgroundColor: "yellow",
     margin: 10,
-    padding: 5
+    padding: 5,
+    textAlign: "center"
   },
   selectedText: {
     backgroundColor: "red",

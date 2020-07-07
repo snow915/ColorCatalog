@@ -1,36 +1,38 @@
-import {StatusBar} from 'expo-status-bar';
-import React from 'react';
+import React, {useState} from 'react';
 import {
     StyleSheet,
     View,
-    Image,
-    Dimensions
+    Text
 } from 'react-native';
+import {getBackgroundColor} from "react-native/Libraries/LogBox/UI/LogBoxStyle";
 
-import cat1 from "./assets/cat1.jpg"
-import cat2 from "./assets/cat2.jpg"
 
 export default function App() {
 
+    const [backgroundColor, setBackgroundColor] = useState("white")
+
     return (
-        <View style={styles.page}>
-            <Image style={styles.image} source={cat1}/>
-            <Image style={styles.image} source={cat2}/>
+        <View style={[styles.container, {backgroundColor}]}>
+            <Text style={styles.button} onPress={() => setBackgroundColor("green")}>Green</Text>
+            <Text style={styles.button} onPress={() => setBackgroundColor("red")}>Red</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
+    container: {
+        flex: 1,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    },
 
-  image: {
-      flex: 1,
-      borderRadius: 50,
-      margin: 10,
-      width: Dimensions.get("window").width - 10
-  }
+    button: {
+        fontSize: 30,
+        margin: 10,
+        padding: 10,
+        borderRadius: 10,
+        borderWidth: 2,
+        textAlign: "center",
+    }
 });

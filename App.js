@@ -7,6 +7,18 @@ import {
 } from 'react-native';
 import {getBackgroundColor} from "react-native/Libraries/LogBox/UI/LogBoxStyle";
 
+function ColorButton({backgroundColor, onPress=f=>f}){
+    return (
+        <TouchableHighlight style={styles.button}
+                            onPress={() => onPress(backgroundColor)}
+                            underlayColor="orange">
+            <View style={styles.row}>
+                <View style={[styles.sample, {backgroundColor}]}/>
+                <Text style={styles.buttonText} >{backgroundColor}</Text>
+            </View>
+        </TouchableHighlight>
+    );
+}
 
 export default function App() {
 
@@ -14,14 +26,11 @@ export default function App() {
 
     return (
         <View style={[styles.container, {backgroundColor}]}>
-            <TouchableHighlight style={styles.button}
-            onPress={() => setBackgroundColor("yellow")}
-            underlayColor="orange">
-                <View style={styles.row}>
-                    <View style={[styles.sample, {backgroundColor: "yellow"}]}/>
-                    <Text style={styles.buttonText} >Yellow</Text>
-                </View>
-            </TouchableHighlight>
+            <ColorButton backgroundColor={"red"} onPress={setBackgroundColor}/>
+            <ColorButton backgroundColor={"purple"} onPress={setBackgroundColor}/>
+            <ColorButton backgroundColor={"yellow"} onPress={setBackgroundColor}/>
+            <ColorButton backgroundColor={"blue"} onPress={setBackgroundColor}/>
+            <ColorButton backgroundColor={"green"} onPress={setBackgroundColor}/>
         </View>
     );
 }

@@ -20,7 +20,7 @@ export default function ColorForm({onNewColor=f=>f}) {
                 title="Add"
                 onPress={() => {
                     input.current.blur(); // blur will disappear the keyboard
-                    onNewColor(inputValue)
+                    onNewColor(inputValue.trim())
                     setValue(""); // This will clean the TextInput
                 }
                 }
